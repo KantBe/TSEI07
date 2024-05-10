@@ -1,0 +1,33 @@
+Fs=16000;
+
+%Filter 1
+%f = [0.4 0.5]*Fs/2;                              
+%m = [1 0];                                      
+%dev = [0.01 0.001];                           
+
+%Filter 2
+% f = [0.5 0.6]*Fs/2;                              
+% m = [0 1];                                      
+% dev = [0.001 0.01];
+
+%Filter 3
+% f = [0.3 0.4 0.6 0.7]*Fs/2;                              
+% m = [0 1 0];                                      
+% dev = [0.001 0.01 0.001];
+
+%Filter 4
+f = [0.3 0.4 0.6 0.7]*Fs/2;                              
+m = [1 0 1];                                      
+dev = [0.01 0.001 0.01];
+
+[n,fo,mo,w]=firpmord(f,m,dev,Fs)
+b = firpm(n,fo,mo,w);
+
+figure;                       
+freqz(b,1,1024,Fs);
+title('Frequency Response');
+
+figure;            
+zplane(b,1); 
+grid;  
+title('Poles and Zeros');   
