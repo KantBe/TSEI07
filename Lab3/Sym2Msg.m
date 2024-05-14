@@ -1,6 +1,6 @@
 function Msg = Sym2Msg(x,QAM_Type)
 
-Sym = qamdemod(x,QAM_Type);
+Sym = qamdemod(x,QAM_Type,"bin");
 
     for i = 1:length(Sym)                
        if     (Sym(i) == 0)

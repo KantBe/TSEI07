@@ -61,12 +61,28 @@ delta_c11=(delta_c11_max-delta_c11_min)/2
 
 %% 5.2.4
 
-%load('Filters2.mat');
-load('Filters4.mat');
+load('Filters2.mat');
 
 [F0,~]=freqz(f0);
 [F1,~]=freqz(f1);
 
 S2=(abs(F0)).^2+(abs(F1)).^2;
 
-plot(S2)
+load('Filters4.mat');
+
+[F0,~]=freqz(f0);
+[F1,~]=freqz(f1);
+
+S4=(abs(F0)).^2+(abs(F1)).^2;
+
+wT=linspace(0,pi,512);
+
+subplot(2,1,1)
+plot(wT/pi,S2)
+grid
+ylabel('Filters2');
+subplot(2,1,2)
+plot(wT/pi,S4)
+grid
+ylabel('Filters4');
+xlabel('\omegaT [\times\pi rad]');

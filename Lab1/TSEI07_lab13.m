@@ -1,3 +1,5 @@
+Fs=16000;
+
 h_LP = Ex13cLP;                                 
 m_LP = 20*log10(abs(h_LP));                     
 E_LP = 20*log10(sum(abs(m_LP(0.4*pi:end))));    
